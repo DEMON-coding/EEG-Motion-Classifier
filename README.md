@@ -7,14 +7,14 @@ EEG Facial Action Classifier | 1D-CNN for blink/frown/rest detection from raw si
 
 ### 一、数据说明
 
-项目使用商用EEG采集设备采集原始脑电信号，原始数据存放于 `raw_data/` 文件夹中每个 `.txt` 文件对应一个动作样本。原始数据以时间戳 `(Time)` 和原始值 `(Raw)` 两列保存，数据采样率约为 500Hz; `Raw` 值为 `ADC` 采样值，范围 `-2048 ~ 2048` 。
+项目使用商用EEG采集设备采集原始脑电信号，原始数据存放于 `raw_data/` 文件夹中每个 `.txt` 文件对应一个动作样本。原始数据以时间戳 `(Time)` 和原始值 `(Raw)` 两列保存，数据采样率约为 `500Hz` | `Raw` 值为 `ADC` 采样值，范围 `-2048 ~ 2048` 。
 
 ---
 
 ### 二、数据预处理
 
 * 脚本路径：`GetDataSet.py`
-* 每 128 个连续数据点作为一个时间窗口，约覆盖 0.25 秒（窗口长度与采样率有关）
+* 每 `128` 个连续数据点作为一个时间窗口，约覆盖 `0.25` 秒（窗口长度与采样率有关）
 * 根据文件名提取标签，转换为结构化数据
 * 最终构建为标准训练集并保存为 `data/eeg_data.csv`，用于模型训练
 
@@ -36,9 +36,9 @@ EEG Facial Action Classifier | 1D-CNN for blink/frown/rest detection from raw si
 
 * 脚本路径：`TrainData.py`
 * 数据划分比例：训练集 : 测试集 = 4 : 1
-* 数据加载：使用 `DataLoader` 加载 Tensor 格式数据
-* 损失函数：交叉熵损失（CrossEntropyLoss）
-* 优化器：Adam
+* 数据加载：使用 `DataLoader` 加载 `Tensor` 格式数据
+* 损失函数：交叉熵损失 `(CrossEntropyLoss)`
+* 优化器：`Adam`
 * 可视化：训练过程中记录并保存损失变化曲线图
 * 输出目录：训练完成的模型文件与可视化图像保存在 `models_dict/` 文件夹中
 
