@@ -15,7 +15,7 @@ from Model import EEGCNN
 torch.set_num_threads(1)  # 限制线程数，节省内存
 
 # ============ 1. 加载与处理数据 ============ #
-df = pd.read_csv("data/eeg_dataV2.csv")
+df = pd.read_csv("data/eeg_data.csv")
 df.fillna(df.select_dtypes(include=['float64', 'int64']).mean(), inplace=True)
 
 le = LabelEncoder()
