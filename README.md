@@ -44,7 +44,13 @@ EEG Facial Action Classifier | 1D-CNN for blink/frown/rest detection from raw si
 
 ---
 
+### 五、后续开发
+最新修改发布在 `dev/` 文件夹中，若使用稳定版本请忽略此文件夹。
+
+---
+
 如需运行、测试或修改此项目，请根据自身设备与数据采集方式调整对应参数和路径。
+
 ## 许可协议
 
 本项目基于 MIT License 开源。你可以自由地使用、修改、分发本项目代码，但请保留原始版权声明。
