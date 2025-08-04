@@ -1,0 +1,16 @@
+# 默认忽略的文件
+/shelf/
+/workspace.xml
+# 基于编辑器的 HTTP 客户端请求
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
+# 忽略 PyCharm 项目配置
+.idea/
+*.iml
+
+# 忽略 Python 缓存
+__pycache__/
+*.pyc
