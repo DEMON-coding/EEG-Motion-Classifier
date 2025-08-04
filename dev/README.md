@@ -2,4 +2,4 @@
 
 ---
 
-* 添加了 `PredictTimely.py` 支持调用 `models_dict/` 下的模型进行实时预测，使用时请注意输入输出设备端口的配置
+* 添加了 `PredictTimely.py` 支持调用 `models_dict/` 下的模型进行实时预测，使用时请注意输入输出设备端口的配置(示例为商家的USB口输入与网址段传值)
