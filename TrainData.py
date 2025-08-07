@@ -1,4 +1,4 @@
-import os
+# import os
 import pandas as pd
 import numpy as np
 import torch
@@ -68,7 +68,7 @@ for epoch in range(num_epochs):
     print(f"Epoch {epoch+1}/{num_epochs}, Loss: {avg_loss:.4f}")
 
 # ============ 5. 保存模型 ============ #
-os.makedirs("checkpoints", exist_ok=True)
+# os.makedirs("checkpoints", exist_ok=True)
 torch.save(model.state_dict(), "models_dict/eeg_cnn_model.pth")
 print("模型已保存至 models_dict/eeg_cnn_model.pth")
 
