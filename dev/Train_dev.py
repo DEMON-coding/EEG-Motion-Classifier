@@ -11,8 +11,6 @@ import matplotlib.pyplot as plt
 
 from Model import EEGCNN
 
-torch.set_num_threads(1)  # 限制线程数，节省内存
-
 # ============ 1. 加载与处理数据 ============ #
 df = pd.read_csv("csv_dev/eeg_data.csv")
 df.fillna(df.select_dtypes(include=['float64', 'int64']).mean(), inplace=True)
@@ -41,11 +39,12 @@ test_loader = DataLoader(test_dataset, batch_size=16)
 # ============ 2. 初始化模型 ============ #
 device = torch.device("cpu")
 model = EEGCNN(num_classes=len(le.classes_)).to(device)
+print(len(le.classes_))
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)  # 随机梯度下降优化器
 
 # ============ 3. 训练模型 ============ #
-num_epochs = 16
+num_epochs = 32
 train_losses = []
 
 for epoch in range(num_epochs):
@@ -67,7 +66,7 @@ for epoch in range(num_epochs):
     print(f"Epoch {epoch+1}/{num_epochs}, Loss: {avg_loss:.4f}")
 
 # ============ 5. 保存模型 ============ #
-torch.save(model.state_dict(), "model_dev/model.pth")
+torch.save(model.state_dict(), "model_dev/model3.pth")
 print("模型已保存至 model_dev/model.pth")
 
 # ============ 6. 可视化训练过程 ============ #
@@ -79,8 +78,8 @@ plt.title('Training Loss Curve')
 plt.grid(True)
 plt.legend()
 plt.tight_layout()
-plt.savefig("models_dict/loss_curve.png")
-print("损失曲线图已保存为 models_dict/loss_curve.png")
+plt.savefig("png/loss_curve3.png")
+print("损失曲线图已保存为 png/loss_curve.png")
 
 # ============ 7. 测试评估 ============ #
 model.eval()  # 评估模式
@@ -107,5 +106,5 @@ plt.figure(figsize=(6, 5))
 disp_raw.plot(cmap=plt.cm.Blues, values_format='d')
 plt.title("Confusion Matrix")
 plt.tight_layout()
-plt.savefig("png/confusion_matrix.png")
+plt.savefig("png/confusion_matrix3.png")
 print("混淆矩阵图已保存")

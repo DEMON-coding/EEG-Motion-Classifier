@@ -9,11 +9,11 @@ import sys
 SERIAL_PORT = 'COM3'
 BAUD_RATE = 57600
 SAMPLES_PER_SEGMENT = 128
-label_map = {0: 'blink', 1: 'frown', 2: 'rest'}
+label_map = {0: 'blink', 1: 'rest', 2: 'left', 3: 'right'}
 
 # ==== 加载模型 ====
-model = EEGCNN(num_classes=3)
-model.load_state_dict(torch.load("model_dev/eeg_cnn_model.pth", map_location='cpu'))
+model = EEGCNN(num_classes=4)
+model.load_state_dict(torch.load("model_dev/model3.pth", map_location='cpu'))
 model.eval()
 
 # ==== 初始化串口 ====

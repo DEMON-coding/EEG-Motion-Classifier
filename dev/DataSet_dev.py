@@ -5,7 +5,7 @@ import pandas as pd
 RAW_DATA_DIR = 'data_dev'              # 存放 txt 文件的文件夹
 OUTPUT_CSV = 'csv_dev/eeg_data.csv'       # 输出的 CSV 文件
 SAMPLES_PER_SEGMENT = 128              # 每个样本用 128 行数据
-LABELS = ['blink', 'frown', 'rest']    # 支持的标签
+LABELS = ['blink', 'rest', 'left', 'right']    # 支持的标签
 
 # 确保输出目录存在
 os.makedirs('csv_dev', exist_ok=True)
